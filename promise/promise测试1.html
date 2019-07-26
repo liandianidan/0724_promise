@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>自定义Promise_使用测试</title>
+</head>
+<body>
+    <script src="./lib/promise.js"></script>
+    <!-- <script>
+     const p = new Promise ((resolve,reject)=>{
+             setTimeout(()=>{
+                // resolve('--------------下雨啦')
+                 reject('---------失败了')
+             },1000)
+        })
+        p.then(
+            (value)=>{
+               console.log('成功的回调函数'+value)
+            return 3
+            // return undefined
+            // return '太热了'
+            // throw 3
+            },
+            (reason)=>{
+               console.log('失败的回调函数'+reason)
+               return 3
+            }
+        ).then(
+            (value)=>{
+                console.log('成功的回调函数2----------'+value)
+            },
+            (reason)=>{
+                console.log('失败的回调函数2------------'+reason)
+            }
+        )
+      
+    </script> -->
+    <script>
+        const p1=  Promise.resolve(1)
+        const p2=  Promise.resolve(Promise.resolve(2))
+        const p3=  Promise.reject(3)
+  
+
+       
+    </script>
+    <!-- <script>
+         setTimeout(() => {//宏队列1
+            console.log("0")
+                new Promise((resolve,reject)=>{//同步
+                console.log("3")
+                resolve()
+            })
+              .then(()=>{
+                 console.log('5')
+                    })
+                console.log('6')//同步
+            }, 0)
+
+            new Promise((resolve,reject)=>{
+            console.log("1") //同步立即执行  
+            resolve()  //成功的状态
+            })
+            .then(()=>{ //微队列 1
+            console.log("2")  
+            new Promise(()=>{
+            setTimeout(()=>{  //宏队列2
+            console.log('8')
+            },0)
+            })
+            .then(()=>{  //由于上面是初始状态，所以不会执行
+            console.log('hahhah')
+            })
+            })
+            console.log('4') //同步
+
+
+//1 4 2 0 3 6 5 8
+    </script> -->
+</body>
+</html>

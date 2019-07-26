@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./lib/promise.js"></script>
+<!-- <script>
+    const p = new Promise((resolve, reject) => {
+      // throw new Error('---')
+      if (Date.now()%2===0) {
+        resolve('成功的数据')
+      } else {
+        reject('失败的数据')
+      }
+    })
+    
+    p.then(
+      value => {
+        console.log('onResolved()1', value)
+      },
+      reason => {
+        console.log('onRejected()1', reason)
+      }
+    )
+    p.then(
+      value => {
+        console.log('onResolved()2', value)
+      },
+      reason => {
+        console.log('onRejected()2', reason)
+      }
+    )
+</script> -->
+<script>
+  const p1 = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(4)
+    }, 100);
+  })
+  const p2 = Promise.resolve(Promise.resolve(5))
+  const p3 = Promise.reject(6)
+
+  Promise.all([p1, p2, 3, p3]).then(values => {
+    console.log(values)
+  }, reason => {
+    console.log(reason)
+  })
+//   Promise.race([p3, p1]).then(
+//     value => {
+//       console.log('成功', value)
+//     },
+//     reason => {
+//       console.log('失败', reason)
+//     },
+//   )
+</script>
+</html>
